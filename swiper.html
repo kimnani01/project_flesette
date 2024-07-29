@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>swiper-center</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <style>
+        /* 전체 swiper 디자인 */
+        main {position:relative; width:1400px; margin:0 auto; background:#eee; padding:20px;}
+        main .first .swiper-wrapper {align-items: flex-end;}
+        main .first .swiper-slide {
+            height:300px; font-size:3rem;
+            display:flex; align-items:center; justify-content: center;
+            border-radius:20px;
+            background:#ccc;
+        }
+        /* 가운데 활성화 슬라이드 디자인 */
+        main .first .swiper-slide-active {
+            background:#aaa; height:400px;
+            border-top-left-radius:300px;
+            border-top-right-radius:300px;
+        }
+        /* 내비게이션 버튼 디자인 */
+        main .first .swiper-button-prev, main .first .swiper-button-next {
+            color:#000; background:#fff; border-radius:50%; width:50px; height:50px;
+            padding:10px; transform:scale(0.5) !important;
+        }
+        main .first .swiper-button-prev {transform:translateX(-100px);}
+        main .first .swiper-button-next {transform:translateX(100px);}
+    </style>
+</head>
+<body>
+    <main>
+        <div class="first">
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide s1">1</div>
+                    <div class="swiper-slide s2">2</div>
+                    <div class="swiper-slide s3">3</div>
+                    <div class="swiper-slide s4">4</div>
+                    <div class="swiper-slide s5">5</div>
+                    <div class="swiper-slide s6">6</div>
+                    <div class="swiper-slide s7">7</div>
+                    <div class="swiper-slide s8">8</div>
+                </div>
+            </div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+    </main>
+    <script>
+        const first_swiper = new Swiper('main .first .swiper',{
+            autoplay:{delay:2000,},
+            slidesPerView:5,
+            spaceBetween:10,
+            centeredSlides:true,
+            loop:true,
+            navigation: {
+                nextEl: 'main .first .swiper-button-next',
+                prevEl: 'main .first .swiper-button-prev',
+            },
+        })
+    </script>
+</body>
+</html>
